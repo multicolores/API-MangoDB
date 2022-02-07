@@ -1,34 +1,28 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const cors = require('cors')
+const cors = require("cors");
 const PORT = 8080;
-const fs = require('fs')
-const mongoose = require('mongoose');
-require('dotenv/config');
-
+const fs = require("fs");
+const mongoose = require("mongoose");
+require("dotenv/config");
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 // Import Routes
-const tasksRoute = require('./routes/tasks');
-const authRoute = require('./routes/auth');
+const tasksRoute = require("./routes/tasks");
+const authRoute = require("./routes/auth");
 
-app.use('/tasks', tasksRoute);
-app.use('/', authRoute);
+app.use("/tasks", tasksRoute);
+app.use("/", authRoute);
 
-
-
-app.listen(
-    PORT,
-    ()=> {
-        console.log('App available on http://localhost:'+PORT);
-    }
-)
+app.listen(process.env.PORT || 8080, () => {
+  console.log("App available on http://localhost:" + PORT);
+});
 
 mongoose.connect(process.env.DB_CONNECTION, () =>
-    console.log('connected to the db !')
-    );
+  console.log("connected to the db !")
+);
 
 // app.get('/shirt', (req, res) => {
 //     fs.readFile('./data.txt', 'utf8' , (err, data) => {
@@ -43,7 +37,7 @@ mongoose.connect(process.env.DB_CONNECTION, () =>
 // app.post('/shirt/:id', (req, res) => {
 //     const { id } = req.params;
 //     const { logo } = req.body;
-//     const content = `${id} : ${logo} 
+//     const content = `${id} : ${logo}
 // `;
 //     if(!logo){
 //         res.status(418).send({message: 'we need a logo'})
@@ -58,10 +52,6 @@ mongoose.connect(process.env.DB_CONNECTION, () =>
 //         body: content,
 //     });
 // })
-
-
-
-
 
 // const content = 'Some content!'
 
