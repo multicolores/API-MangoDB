@@ -12,9 +12,13 @@ app.use(cors());
 // Import Routes
 const tasksRoute = require("./routes/tasks");
 const authRoute = require("./routes/auth");
+const workoutRoute = require("./routes/workouts");
+const exerciseRoute = require("./routes/exercises");
 
 app.use("/tasks", tasksRoute);
 app.use("/", authRoute);
+app.use("/workout", workoutRoute);
+app.use("/exercise", exerciseRoute);
 
 app.listen(process.env.PORT || 8080, () => {
   console.log("App available on http://localhost:" + PORT);
