@@ -10,6 +10,11 @@ const WorkoutSchema = mongoose.Schema({
       type: String,
     },
   ],
+  training: [
+    {
+      type: String,
+    },
+  ],
   description: {
     type: String,
     require: false,
