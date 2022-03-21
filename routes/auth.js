@@ -74,4 +74,17 @@ router.get("/user", verify, async (req, res) => {
     res.json({ message: err });
   }
 });
+
+//Update a user
+router.patch("/user/:userid", verify, async (req, res) => {
+  try {
+    const updatedUser = await User.updateOne(
+      { _id: req.params.userid },
+      { $set: { workout: req.body.workout } }
+    );
+    res.json(updatedUser);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
 module.exports = router;
