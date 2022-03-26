@@ -38,9 +38,6 @@ router.get("/:trainingid", async (req, res) => {
 router.post("/", async (req, res) => {
   const training = new Training({
     exercise: req.body.exercise,
-    repetition: req.body.repetition,
-    recuperation: req.body.recuperation,
-    weight: req.body.weight,
   });
   try {
     const savedtraining = await training.save();

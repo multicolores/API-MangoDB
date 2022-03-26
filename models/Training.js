@@ -3,22 +3,10 @@ const mongoose = require("mongoose");
 const TrainingSchema = mongoose.Schema({
   exercise: [
     {
-      type: String,
-    },
-  ],
-  repetition: [
-    {
-      type: Array,
-    },
-  ],
-  recuperation: [
-    {
-      type: String,
-    },
-  ],
-  weight: [
-    {
-      type: String,
+      name: String,
+      repetition: Array,
+      recuperation: String,
+      weight: String,
     },
   ],
   date: {
