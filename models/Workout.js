@@ -7,7 +7,10 @@ const WorkoutSchema = mongoose.Schema({
   },
   exercise: [
     {
-      type: String,
+      name: String,
+      repetition: Array,
+      recuperation: String,
+      weight: String,
     },
   ],
   training: [
