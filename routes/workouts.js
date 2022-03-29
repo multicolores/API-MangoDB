@@ -65,7 +65,7 @@ router.patch("/:workoutid", async (req, res) => {
   try {
     const updatedWorkout = await Workout.updateOne(
       { _id: req.params.workoutid },
-      { $set: { training: req.body.training } }
+      { $set: { exercise: req.body.exercise } }
     );
     res.json(updatedWorkout);
   } catch (err) {
